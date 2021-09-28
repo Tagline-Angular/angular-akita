@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+// import { AkitaNgEffectsModule } from '@datorama/akita-ng-effects';
+
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { AkitaNgEffectsModule } from '@datorama/akita-ng-effects';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 
 @NgModule({
   declarations: [
@@ -10,7 +16,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AkitaNgRouterStoreModule,
+    AkitaNgDevtools.forRoot(),
+    AkitaNgEffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

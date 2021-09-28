@@ -1,0 +1,9 @@
+<div>
+  <h6>Hi, {{ username$ | async }}</h6>
+  <h4>Products:</h4>
+  <div *ngFor="let data of productList">
+    <div>
+      {{ data.name }}
+    </div>
+  </div>
+</div>

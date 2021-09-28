@@ -1,0 +1,22 @@
+   
+<div class="row padding" style="width: 50%; margin: auto;">
+    <form class="col s12" [formGroup]="loginForm" (submit)="submit()">
+      <div class="row">
+        <div class="input-field">
+          <!-- <i class="material-icons prefix">email</i> -->
+          <label for="icon_prefix">User Name</label>
+          <input id="icon_prefix" type="text" class="validate" formControlName="username">
+        </div>
+        <div class="input-field">
+          <!-- <i class="material-icons prefix">lock_open</i> -->
+          <label for="icon_telephone">Password</label>
+          <input id="icon_telephone" type="password" class="validate" formControlName="password">
+        </div>
+      </div>
+  
+      <button class="btn waves-effect waves-light flex" style="margin-left: auto;" type="submit">Submit
+        <!-- <i class="material-icons right">send</i> -->
+      </button>
+  
+    </form>
+  </div>
