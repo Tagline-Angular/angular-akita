@@ -1,9 +1,10 @@
 <div>
   <h6>Hi, {{ username$ | async }}</h6>
   <h4>Products:</h4>
-  <div *ngFor="let data of productList">
+  <button (click)="addProduct()">Add</button>
+  <div *ngFor="let data of products$ | async">
     <div>
-      {{ data.name }}
+      {{ data.title }}
     </div>
   </div>
 </div>

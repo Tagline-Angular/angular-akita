@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SessionQuery } from 'src/app/session/state/session.query';
+import { Product } from '../state/product.model';
+import { ProductQuery } from '../state/product.query';
+import { ProductService } from '../state/product.service';
 
 @Component({
   selector: 'app-list-products',
@@ -8,31 +11,32 @@ import { SessionQuery } from 'src/app/session/state/session.query';
   styleUrls: ['./list-products.component.scss'],
 })
 export class ListProductsComponent implements OnInit {
-  productList: Array<any> = [];
   username$: Observable<string>;
+  products$: Observable<Product[]>;
 
-  constructor(private sessionQuery: SessionQuery) {
+  constructor(
+    private sessionQuery: SessionQuery,
+    private productQuery: ProductQuery,
+    private productService: ProductService
+  ) {
     this.username$ = this.sessionQuery.selectUserName();
+    this.products$ = this.productQuery.selectAll();
+    this.getProducts();
   }
 
-  ngOnInit(): void {
-    this.productList = [
-      {
-        id: 1,
-        name: 'Test1',
-      },
-      {
-        id: 2,
-        name: 'Test2',
-      },
-      {
-        id: 3,
-        name: 'Test3',
-      },
-      {
-        id: 4,
-        name: 'Test4',
-      },
-    ];
+  ngOnInit(): void {}
+
+  getProducts(): void {
+    this.productService.get();
+  }
+
+  addProduct() {
+    const product: Product = {
+      title: 'test product',
+      price: 13.5,
+      description: 'lorem ipsum set',
+      category: 'electronic',
+    };
+    this.productService.add(product);
   }
 }

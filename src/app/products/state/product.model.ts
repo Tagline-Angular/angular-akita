@@ -1,7 +1,11 @@
-import { ID } from '@datorama/akita';
+import { guid, ID } from '@datorama/akita';
 
 export interface Product {
-  id: ID;
+  id?: number;
+  title: string;
+  price: number;
+  description?: string;
+  category?: string;
 }
 
 /**
@@ -9,6 +13,7 @@ export interface Product {
  */
 export function createProduct(params: Partial<Product>) {
   return {
-
+    id: guid(),
+    ...params,
   } as Product;
 }

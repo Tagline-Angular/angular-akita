@@ -1,5 +1,5 @@
 <div class="container pt-5">
-  <div>
+  <div *ngIf="!isLoginScreen">
     <button (click)="logout()">Log out</button>
   </div>
   <router-outlet></router-outlet>
