@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { SessionQuery } from 'src/app/session/state/session.query';
+import { AddEditProducsComponent } from '../add-edit-producs/add-edit-producs.component';
 import { Product } from '../state/product.model';
 import { ProductQuery } from '../state/product.query';
 import { ProductService } from '../state/product.service';
@@ -14,10 +15,10 @@ export class ListProductsComponent implements OnInit {
   products$: Observable<Product[]>;
   displayedColumns: string[] = ['id', 'title', 'price', 'category'];
 
-
   constructor(
     private productQuery: ProductQuery,
-    private productService: ProductService
+    private productService: ProductService,
+    public dialog: MatDialog
   ) {
     this.products$ = this.productQuery.selectAll();
     this.getProducts();
@@ -30,12 +31,17 @@ export class ListProductsComponent implements OnInit {
   }
 
   addProduct() {
-    const product: Product = {
-      title: 'test product',
-      price: 13.5,
-      description: 'lorem ipsum set',
-      category: 'electronic',
-    };
-    this.productService.add(product);
+    const dialogRef = this.dialog.open(AddEditProducsComponent, {
+      width: '640px',
+      disableClose: true,
+    });
+
+    // const product: Product = {
+    //   title: 'test product',
+    //   price: 13.5,
+    //   description: 'lorem ipsum set',
+    //   category: 'electronic',
+    // };
+    // this.productService.add(product);
   }
 }

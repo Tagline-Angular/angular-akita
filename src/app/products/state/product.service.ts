@@ -3,10 +3,15 @@ import { ID } from '@datorama/akita';
 import { HttpClient } from '@angular/common/http';
 import { ProductStore } from './product.store';
 import { createProduct, Product } from './product.model';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  constructor(private productStore: ProductStore, private http: HttpClient) {}
+  constructor(
+    private productStore: ProductStore,
+    private http: HttpClient,
+    public dialog: MatDialog
+  ) {}
 
   get() {
     this.http
@@ -15,9 +20,17 @@ export class ProductService {
   }
 
   add(product: Product) {
-    const prod = createProduct(product);
-    console.log('prod ::  ==>', prod);
-    this.productStore.add(prod);
+    this.http.post('https://fakestoreapi.com/products', product).subscribe(
+      (response: any) => {
+        const prod = createProduct(response);
+        this.productStore.add(prod);
+        this.dialog.closeAll();
+      },
+      (err) => {
+        console.log('err ::  ==>', err);
+        this.dialog.closeAll();
+      }
+    );
   }
 
   update(product: Partial<Product>) {

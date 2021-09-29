@@ -1,1 +1,69 @@
-<p>add-edit-producs works!</p>
+<div>
+  <div class="add-title">
+    <h2 class="primary">Add Product</h2>
+  </div>
+  <div>
+    <form [formGroup]="form">
+      <div class="text-inside">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Title"
+            formControlName="title"
+            required
+          />
+          <mat-error *ngIf="form.controls.title.hasError('required')">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="text-inside">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="price"
+            formControlName="price"
+            type="number"
+            required
+          />
+          <mat-error *ngIf="form.controls.price.hasError('required')">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="text-inside">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Category"
+            formControlName="category"
+            required
+          />
+          <mat-error *ngIf="form.controls.category.hasError('required')">
+            This field is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="btn-sec form-button-panel">
+        <button
+          mat-raised-button
+          type="submit"
+          color="primary"
+          class="Update-btn"
+          (click)="submit()"
+        >
+          Save
+        </button>
+        <button
+          mat-raised-button
+          type="button"
+          class="Discard-btn"
+          (click)="cancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
