@@ -1,22 +1,28 @@
    
-<div class="row padding" style="width: 50%; margin: auto;">
-    <form class="col s12" [formGroup]="loginForm" (submit)="submit()">
-      <div class="row">
-        <div class="input-field">
-          <!-- <i class="material-icons prefix">email</i> -->
-          <label for="icon_prefix">User Name</label>
-          <input id="icon_prefix" type="text" class="validate" formControlName="username">
-        </div>
-        <div class="input-field">
-          <!-- <i class="material-icons prefix">lock_open</i> -->
-          <label for="icon_telephone">Password</label>
-          <input id="icon_telephone" type="password" class="validate" formControlName="password">
-        </div>
-      </div>
-  
-      <button class="btn waves-effect waves-light flex" style="margin-left: auto;" type="submit">Submit
-        <!-- <i class="material-icons right">send</i> -->
-      </button>
-  
-    </form>
-  </div>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+<mat-card-content>
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+<p>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password" formControlName="password">
+  </mat-form-field>
+</p>
+
+<!-- <p *ngIf="error" class="error">
+  {{ error }}
+</p> -->
+
+<div class="button">
+  <button type="submit" mat-button>Submit</button>
+</div>
+
+</form>
+</mat-card-content>
+</mat-card>

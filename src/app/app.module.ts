@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgEffectsModule } from '@datorama/akita-ng-effects';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
     // AkitaNgRouterStoreModule,
     AkitaNgDevtools.forRoot(),
     AkitaNgEffectsModule.forRoot([]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

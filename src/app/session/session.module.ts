@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SessionRoutingModule } from './session-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -12,7 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     SessionRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    MaterialModule,
+  ],
 })
-export class SessionModule { }
+export class SessionModule {}
