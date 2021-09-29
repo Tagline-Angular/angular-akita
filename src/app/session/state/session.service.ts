@@ -9,7 +9,10 @@ export class SessionService {
   }
 
   updateUserName(username: string){
-    console.log('update name in store ==>');
     this.sessionStore.update({username})
+  }
+
+  reset(){
+    this.sessionStore.reset();
   }
 }

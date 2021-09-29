@@ -18,7 +18,7 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AkitaNgRouterStoreModule,
+    // AkitaNgRouterStoreModule,
     AkitaNgDevtools.forRoot(),
     AkitaNgEffectsModule.forRoot([]),
   ],

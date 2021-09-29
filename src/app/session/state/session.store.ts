@@ -12,7 +12,7 @@ export function createInitialState(): SessionState {
 }
 
 @Injectable({ providedIn: 'root' })
-@StoreConfig({ name: 'session' })
+@StoreConfig({ name: 'session', resettable: true })
 export class SessionStore extends Store<SessionState> {
 
   constructor() {

@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
-    console.log('submit function ==>', this.loginForm.value);
     this.sessionService.updateUserName(this.loginForm.value.username);
     this.router.navigate(['/products']);
   }
