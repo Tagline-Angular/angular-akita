@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ID } from '@datorama/akita';
 import { HttpClient } from '@angular/common/http';
 import { ProductStore } from './product.store';
 import { createProduct, Product } from './product.model';

@@ -23,17 +23,7 @@ export class AddEditProducsComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(){
-    console.log('this.form.value ::  ==>' , this.form.value);
     this.productService.add(this.form.value);
-
-    // const product: Product = {
-    //   title: 'test product',
-    //   price: 13.5,
-    //   description: 'lorem ipsum set',
-    //   category: 'electronic',
-    // };
-    // this.productService.add(product);
-
   }
   cancel(){
     this.dialog.closeAll();

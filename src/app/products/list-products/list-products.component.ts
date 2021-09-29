@@ -35,13 +35,5 @@ export class ListProductsComponent implements OnInit {
       width: '640px',
       disableClose: true,
     });
-
-    // const product: Product = {
-    //   title: 'test product',
-    //   price: 13.5,
-    //   description: 'lorem ipsum set',
-    //   category: 'electronic',
-    // };
-    // this.productService.add(product);
   }
 }
