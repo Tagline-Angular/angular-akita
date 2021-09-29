@@ -14,6 +14,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
 
 const modules = [
   MatAutocompleteModule,
@@ -30,6 +32,8 @@ const modules = [
   MatInputModule,
   MatListModule,
   MatMenuModule,
+  MatToolbarModule,
+  MatTableModule
 ];
 
 @NgModule({

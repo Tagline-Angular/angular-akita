@@ -11,15 +11,14 @@ import { ProductService } from '../state/product.service';
   styleUrls: ['./list-products.component.scss'],
 })
 export class ListProductsComponent implements OnInit {
-  username$: Observable<string>;
   products$: Observable<Product[]>;
+  displayedColumns: string[] = ['id', 'title', 'price', 'category'];
+
 
   constructor(
-    private sessionQuery: SessionQuery,
     private productQuery: ProductQuery,
     private productService: ProductService
   ) {
-    this.username$ = this.sessionQuery.selectUserName();
     this.products$ = this.productQuery.selectAll();
     this.getProducts();
   }

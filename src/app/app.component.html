@@ -1,6 +1,9 @@
-<div class="container pt-5">
-  <div *ngIf="!isLoginScreen">
-    <button (click)="logout()">Log out</button>
+<div >
+  <mat-toolbar *ngIf="!isLoginScreen" class="user-nav">
+      <h2>Hi, {{ username$ | async }}</h2>
+      <button (click)="logout()" mat-button>Log out</button>
+  </mat-toolbar>
+  <div class="container pt-5">
+    <router-outlet></router-outlet>
   </div>
-  <router-outlet></router-outlet>
 </div>

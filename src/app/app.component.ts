@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { SessionQuery } from './session/state/session.query';
 import { SessionService } from './session/state/session.service';
 
 @Component({
@@ -9,9 +11,14 @@ import { SessionService } from './session/state/session.service';
 })
 export class AppComponent {
   title = 'akita';
+  username$: Observable<string>;
   isLoginScreen: boolean = false;
 
-  constructor(private sessionService: SessionService, private router: Router) {
+  constructor(
+    private sessionQuery: SessionQuery,
+    private sessionService: SessionService,
+    private router: Router
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/' || event.url === '/auth/login')
@@ -19,6 +26,7 @@ export class AppComponent {
         else this.isLoginScreen = false;
       }
     });
+    this.username$ = this.sessionQuery.selectUserName();
   }
 
   logout(): void {
